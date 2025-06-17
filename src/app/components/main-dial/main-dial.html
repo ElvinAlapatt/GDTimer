@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="mainDial">
+        <div class="minutes">
+            <input class="minutesinput" type="number" min="0" max="59" [(ngModel)]="minutes" (blur)="validateTime()">
+        </div> :
+        <div class="seconds">
+            <input class="secondsinput" type="number" min="0" max="59" [(ngModel)]="seconds" (blur)="validateTime()">
+        </div>
+    </div>
+</div>
+<div class="btncontainer">
+  <button class="btn"(click)="startTimer()">Start</button>
+  <button class="btn"(click)="pauseTimer()">Pause</button>
+  <button class="btn"(click)="resetTimer()">Reset</button>
+</div>
+<hr>
