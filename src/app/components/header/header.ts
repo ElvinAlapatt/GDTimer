@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './header.css'
 })
 export class Header {
-  
+  starGithub(){
+    window.open('https://github.com/ElvinAlapatt/GDTimer','_blank')
+  }
 }
