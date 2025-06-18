@@ -1,3 +1,23 @@
 <app-header></app-header>
 <app-main-dial></app-main-dial>
+<div class="button-row">
+  <button class="action-btn" (click)="createCard()">Create</button>
+  <button class="action-btn" (click)="generateExportText()">Export as text</button>
+</div>
+<div>
+    @for (card of cards; track $index) {
+        <app-stopwatch-card
+            (started)="onStartActive($event)"
+            (delete)="deleteCard(card)">
+        </app-stopwatch-card>
+
+    }
+</div>
+
+@if(exportText){
+    <div class="export-box">
+        <textarea readonly rows="cards.length + 1">{{ exportText }}</textarea>
+    </div>
+}
+
 <app-footer></app-footer>

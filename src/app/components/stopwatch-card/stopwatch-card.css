@@ -1,0 +1,77 @@
+.card {
+  width: 95vw;
+  background: #f9f9f9;
+  padding: 16px;
+  margin: 10px auto;
+  border: 2px solid black;
+  border-radius: 12px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.card-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.name-input {
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid black;
+  background: transparent;
+  outline: none;
+  padding: 4px 8px;
+  min-width: 120px;
+}
+
+.dial {
+  font-size: 28px;
+  font-family: 'Courier New', monospace;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+}
+
+.controls button {
+  padding: 6px 12px;
+  font-size: 14px;
+  border: 2px solid black;
+  border-radius: 8px;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.controls button:hover {
+  background-color: black;
+  color: white;
+}
+
+/* Delete button (trash icon) */
+.card-delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: red;
+  transition: transform 0.2s ease;
+}
+
+.delete-btn:hover {
+  transform: scale(1.3);
+}

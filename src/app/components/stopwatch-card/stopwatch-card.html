@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-left">
+    <input class="name-input" [(ngModel)]="name" placeholder="Name..." />
+    <div class="dial">
+      {{ minutes.toString().padStart(2, '0') }}:{{ seconds.toString().padStart(2, '0') }}
+    </div>
+  </div>
+
+  <div class="controls">
+    <button (click)="start()">Start</button>
+    <button (click)="pause()">Pause</button>
+    <button (click)="reset()">Reset</button>
+  </div>
+
+  <div class="card-delete">
+    <button class="delete-btn" (click)="onDelete()">🗑️</button>
+  </div>
+</div>
