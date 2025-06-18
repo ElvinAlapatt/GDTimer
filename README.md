@@ -1,59 +1,46 @@
-# GDTimer
+# GD Timer ⏱️
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.2.
+A simple web app to track individual speaking times during a Group Discussion (GD), while also monitoring the overall GD time. Built using Angular 20.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚩 Problem
 
-```bash
-ng serve
-```
+During a GD, it’s often difficult to:
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Track each participant’s individual speaking time.
+- Respond immediately with a breakdown of each participant's time.
+- Keep an eye on the overall time of the session.
+- Share time data quickly and cleanly, especially in platforms like Google Meet chat.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 💡 Solution
 
-```bash
-ng generate component component-name
-```
+**GD Timer** was created to solve these problems in a lightweight and user-friendly way:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- ✅ Add stopwatch cards dynamically for each participant.
+- ✅ Track each person's time individually.
+- ✅ Pause/resume/reset timers independently.
+- ✅ Automatically pause others when one starts.
+- ✅ Export all timers as plain text (e.g., `Name - 02:35`), perfect for pasting into chat.
+- ✅ Persist state using local storage (reload-safe).
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+## 📦 Features
 
-To build the project run:
+- 🎛️ Multiple stopwatch cards with individual controls
+- 🧠 Smart active timer control
+- 📝 Export times in human-readable format
+- 💾 Automatic state saving and restoring
+- 🎨 Minimal, responsive UI
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 📸 Screenshot
 
-## Running unit tests
+![Screenshot from 2025-06-18 13-51-05](https://github.com/user-attachments/assets/84d35bcd-e949-4772-8e50-f2f2d5f9dfd3)
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
