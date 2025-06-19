@@ -132,3 +132,11 @@
   background: black;
   color: white;
 }
+
+@media only screen and (max-width: 511px) {
+  .clarity{
+    font-size: 18px;
+    font-family: inter Tight;
+    justify-content: center;
+  }
+}

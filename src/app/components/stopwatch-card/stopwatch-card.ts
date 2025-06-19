@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-stopwatch-card',
   templateUrl: './stopwatch-card.html',
-  imports : [FormsModule],
+  imports: [FormsModule],
   styleUrls: ['./stopwatch-card.css']
 })
 export class StopwatchCardComponent {
-  public name : string = "";
+  public name: string = "";
+  public isInvalid: boolean = false;
   minutes: number = 0;
   seconds: number = 0;
   interval: any;
@@ -18,7 +19,7 @@ export class StopwatchCardComponent {
 
   start() {
     if (!this.interval) {
-      this.started.emit(this); // Emit reference to self
+      this.started.emit(this);
       this.interval = setInterval(() => {
         this.seconds++;
         if (this.seconds === 60) {
@@ -49,5 +50,12 @@ export class StopwatchCardComponent {
     const m = this.minutes.toString().padStart(2, '0');
     const s = this.seconds.toString().padStart(2, '0');
     return `${m}:${s}`;
+  }
+
+  blinkInvalid() {
+    this.isInvalid = true;
+    setTimeout(() => {
+      this.isInvalid = false;
+    }, 1500);
   }
 }

@@ -18,7 +18,6 @@ export class AppComponent implements AfterViewInit {
   @ViewChildren(StopwatchCardComponent) stopwatches!: QueryList<StopwatchCardComponent>;
 
   ngAfterViewInit(): void {
-    // Restore from localStorage after view initializes
     setTimeout(() => {
       const saved = localStorage.getItem('stopwatchData');
       if (saved) {
@@ -38,18 +37,25 @@ export class AppComponent implements AfterViewInit {
       }
     });
   }
+
   ngOnInit(): void {
-    setInterval(() => this.saveToLocalStorage(), 1000); // Save every 2s
+    setInterval(() => this.saveToLocalStorage(), 1000);
   }
 
   createCard() {
+    const unnamedCard = this.stopwatches.find(card => !card.name.trim());
+    if (unnamedCard) {
+      unnamedCard.blinkInvalid();
+      return;
+    }
+
     this.cards.push(this.nextId++);
-    setTimeout(() => this.saveToLocalStorage(), 0); // Save after view updates
+    setTimeout(() => this.saveToLocalStorage(), 0);
   }
 
   deleteCard(id: number) {
     this.cards = this.cards.filter(card => card !== id);
-    setTimeout(() => this.saveToLocalStorage(), 0); // Save after delete
+    setTimeout(() => this.saveToLocalStorage(), 0);
   }
 
   onStartActive(activeCard: StopwatchCardComponent) {
@@ -61,8 +67,14 @@ export class AppComponent implements AfterViewInit {
   }
 
   generateExportText() {
+    const unnamed = this.stopwatches.find(card => !card.name.trim());
+    if (unnamed) {
+      alert('There is a user without a name !');
+      return;
+    }
+
     const result = this.stopwatches.map(card => {
-      const name = card.name.trim() || 'Unnamed';
+      const name = card.name.trim();
       const time = card.getFormattedTime();
       return `${name} - ${time}`;
     }).join('\n');

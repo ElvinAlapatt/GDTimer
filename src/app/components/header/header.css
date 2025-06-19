@@ -8,7 +8,7 @@
 .title {
   font-family: 'Inter Tight', sans-serif;
   text-align: center;
-  font-size: 48px;
+  font-size: 35px;
   font-weight: bold;
   color: black;
   margin-left: 30px;
@@ -19,7 +19,7 @@
 /* GitHub Star button - desktop */
 .star {
   padding: 12px 24px;
-  font-size: 22px;
+  font-size: 16px;
   font-weight: bold;
   border: 2px solid black;
   border-radius: 10px;
@@ -29,7 +29,7 @@
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s ease;
   margin-right: 0px;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
 .star:hover {
@@ -44,15 +44,15 @@
 /* Responsive styles (for mobile screens) */
 @media only screen and (max-width: 511px) {
   .title {
-    font-size: 36px;
+    font-size: 25px;
     margin-top: 15px;
     margin-left: 8px;
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
 
   .star {
-    font-size: 18px;
+    font-size: 12px;
     padding: 10px 18px;
     margin-right: 10px;
   }

@@ -11,6 +11,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .card-left {
@@ -28,6 +29,13 @@
   outline: none;
   padding: 4px 8px;
   min-width: 120px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.name-input.invalid {
+  border-bottom-color: red;
+  box-shadow: 0 0 5px red;
+  
 }
 
 .dial {
@@ -38,9 +46,12 @@
 .controls {
   display: flex;
   gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-.controls button {
+.controls button,
+.delete-btn {
   padding: 6px 12px;
   font-size: 14px;
   border: 2px solid black;
@@ -51,29 +62,17 @@
   transition: all 0.2s ease;
 }
 
-.controls button:hover {
+.controls button:hover,
+.delete-btn:hover {
   background-color: black;
   color: white;
 }
 
-/* Delete button (trash icon) */
 .delete-btn {
-  background: transparent;
-  border: none;
-  font-size: 16px;
-  border-radius: 8px;
-  padding: 6px 10px;
   color: red;
-  cursor: pointer;
-  transition: transform 0.2s, background 0.2s;
+  border-color: red;
 }
 
-.delete-btn:hover {
-  transform: scale(1.1);
-  background: #ffe5e5;
-}
-
-/* Responsive styles (for mobile screens) */
 @media only screen and (max-width: 611px) {
   .card {
     flex-direction: column;

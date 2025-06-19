@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-left">
-    <input class="name-input" [(ngModel)]="name" placeholder="Name..." />
+    <input class="name-input" [(ngModel)]="name" [class.invalid]="isInvalid" placeholder="Name..." required=""/>
     <div class="dial">
       {{ minutes.toString().padStart(2, '0') }}:{{ seconds.toString().padStart(2, '0') }}
     </div>
