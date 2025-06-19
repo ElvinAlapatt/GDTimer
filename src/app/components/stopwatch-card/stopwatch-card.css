@@ -1,11 +1,11 @@
 .card {
   width: 92vw;
-  background: #f9f9f9;
+  background: var(--card-bg);
   padding: 16px;
   margin: 10px auto;
-  border: 2px solid black;
+  border: 2px solid var(--border-color);
   border-radius: 12px;
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 4px 10px var(--card-boxshadow);
   font-family: 'Inter', sans-serif;
   display: flex;
   align-items: center;
@@ -24,12 +24,13 @@
 .name-input {
   font-size: 16px;
   border: none;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid var(--text-color);
   background: transparent;
   outline: none;
   padding: 4px 8px;
   min-width: 120px;
   transition: border-color 0.3s, box-shadow 0.3s;
+  color: var(--text-color);
 }
 
 .name-input.invalid {
@@ -41,6 +42,7 @@
 .dial {
   font-size: 28px;
   font-family: 'Courier New', monospace;
+  color: var(--text-color);
 }
 
 .controls {
@@ -54,18 +56,18 @@
 .delete-btn {
   padding: 6px 12px;
   font-size: 14px;
-  border: 2px solid black;
+  border: 2px solid var(--border-color);
   border-radius: 8px;
-  background-color: white;
-  color: black;
+  background-color: var(--button-bg);
+  color: var(--button-text);
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .controls button:hover,
 .delete-btn:hover {
-  background-color: black;
-  color: white;
+  background-color: var(--border-color);
+  color: var(--button-bg);
 }
 
 .delete-btn {

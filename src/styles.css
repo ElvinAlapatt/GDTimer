@@ -2,5 +2,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Playwrite+DK+Loopet&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 body{
-    background-color: white;
+    background-color: var(--bg-color);
+}
+:root {
+  --bg-color: #f9f9f9;
+  --text-color: #000;
+  --card-bg: #ffffff;
+  --border-color: black;
+  --button-bg: white;
+  --button-text: black;
+  --alarm-model-bg: rgba(0,0,0,0.6);
+  --modal-content-boxshadow: rgba(0,0,0,0.3);
+  --card-boxshadow: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #f1f1f1;
+  --card-bg: #000000;
+  --border-color: #888;
+  --button-bg: #333;
+  --button-text: #f1f1f1;
+  --alarm-model-bg: rgba(255,255,255,0.6);
+  --modal-content-boxshadow: rgba(255,255,255,0.3);
+}
+* {
+  transition: background-color 0.3s, color 0.3s;
 }

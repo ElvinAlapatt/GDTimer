@@ -8,10 +8,10 @@
 .action-btn {
   padding: 12px 20px;
   font-size: 16px;
-  border: 2px solid black;
+  border: 1px solid var(--border-color);
   border-radius: 10px;
-  background-color: white;
-  color: black;
+  background-color: var(--button-bg);
+  color: var(--button-text);
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: 'Inter Tight', sans-serif;
@@ -19,8 +19,8 @@
 }
 
 .action-btn:hover {
-  background-color: black;
-  color: white;
+  background-color: var(--border-color);
+  color: var(--button-bg);
   transform: translateY(-2px);
 }
 
@@ -35,11 +35,13 @@
   padding: 10px;
   font-size: 22px;
   font-family: 'Courier New', monospace;
-  border: 2px solid black;
+  border: 2px solid var(--border-color);
   border-radius: 8px;
   resize: none;
   height: 220px;               
-  overflow-y: auto;    
+  overflow-y: auto;  
+  background-color: var(--button-bg);
+  color: var(--text-color);
 }
 
 /* Responsive styles (for mobile screens) */
@@ -55,7 +57,7 @@
   padding: 10px;
   font-size: 16px;
   font-family: 'Courier New', monospace;
-  border: 2px solid black;
+  border: 2px solid var(--border-color);
   border-radius: 8px;
   resize: none;
   height: 220px;               

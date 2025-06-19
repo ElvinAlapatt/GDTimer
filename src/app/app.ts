@@ -1,4 +1,4 @@
-import { Component, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
+import { Component, ViewChildren, QueryList, AfterViewInit, OnInit } from '@angular/core';
 import { StopwatchCardComponent } from './components/stopwatch-card/stopwatch-card';
 import { Header } from './components/header/header';
 import { MainDial } from './components/main-dial/main-dial';
@@ -10,12 +10,17 @@ import { Footer } from './components/footer/footer';
   imports: [Header, MainDial, StopwatchCardComponent, Footer],
   styleUrls: ['./app.css'],
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements AfterViewInit, OnInit {
   cards: number[] = [];
   nextId: number = 0;
   exportText: string = "";
 
   @ViewChildren(StopwatchCardComponent) stopwatches!: QueryList<StopwatchCardComponent>;
+
+  ngOnInit(): void {
+    // Auto-save timer
+    setInterval(() => this.saveToLocalStorage(), 1000);
+  }
 
   ngAfterViewInit(): void {
     setTimeout(() => {
@@ -38,9 +43,6 @@ export class AppComponent implements AfterViewInit {
     });
   }
 
-  ngOnInit(): void {
-    setInterval(() => this.saveToLocalStorage(), 1000);
-  }
 
   createCard() {
     const unnamedCard = this.stopwatches.find(card => !card.name.trim());
@@ -69,17 +71,15 @@ export class AppComponent implements AfterViewInit {
   generateExportText() {
     const unnamed = this.stopwatches.find(card => !card.name.trim());
     if (unnamed) {
-      alert('There is a user without a name !');
+      alert('There is a user without a name!');
       return;
     }
 
-    const result = this.stopwatches.map(card => {
+    this.exportText = this.stopwatches.map(card => {
       const name = card.name.trim();
       const time = card.getFormattedTime();
       return `${name} - ${time}`;
     }).join('\n');
-
-    this.exportText = result;
   }
 
   saveToLocalStorage() {
