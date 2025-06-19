@@ -31,7 +31,7 @@
 }
 
 .export-box textarea {
-  width: 100%;
+  width: 90%;
   padding: 10px;
   font-size: 22px;
   font-family: 'Courier New', monospace;
@@ -40,4 +40,25 @@
   resize: none;
   height: 220px;               
   overflow-y: auto;    
+}
+
+/* Responsive styles (for mobile screens) */
+@media only screen and (max-width: 611px) {
+  .export-box {
+  margin: 20px auto;
+  max-width: 800px;
+  text-align: center;
+}
+
+.export-box textarea {
+  width: 90vw;
+  padding: 10px;
+  font-size: 16px;
+  font-family: 'Courier New', monospace;
+  border: 2px solid black;
+  border-radius: 8px;
+  resize: none;
+  height: 220px;               
+  overflow-y: auto;    
+}
 }

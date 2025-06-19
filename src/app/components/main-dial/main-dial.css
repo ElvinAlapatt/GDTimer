@@ -1,3 +1,15 @@
+.clarity-container{
+  display: flex;
+  justify-content: center;
+}
+
+.clarity{
+  font-size: 24px;
+  font-family: inter Tight;
+  justify-content: center;
+  
+}
+
 
 .container {
     display: flex;
