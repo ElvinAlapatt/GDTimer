@@ -16,4 +16,13 @@
   <button class="btn"(click)="pauseTimer()">Pause</button>
   <button class="btn"(click)="resetTimer()">Reset</button>
 </div>
+@if (showAlarm) {
+    <div class="alarm-modal">
+        <div class="modal-content">
+            <p>⏰ Time is Up!</p>
+            <button (click)="dismissAlarm()">OK</button>
+        </div>
+    </div>
+}
+
 <hr>

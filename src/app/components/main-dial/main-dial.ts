@@ -5,15 +5,18 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-main-dial',
   imports: [FormsModule],
   templateUrl: './main-dial.html',
-  styleUrl: './main-dial.css'
+  styleUrl: './main-dial.css',
 })
 export class MainDial {
-  minutes: number = 0 ;
+  minutes: number = 0;
   seconds: number = 0;
+  private interval: any = 0;
+  private totalSeconds: number = 0;
+  isRunning: boolean = false;
 
-  private interval : any = 0 ;
-  private totalSeconds : number = 0 ;
-  isRunning : boolean = false ;
+  alarmAudio = new Audio('alarm.mp3');
+
+  showAlarm: boolean = false;
 
   get formattedTime(): string {
     const mm = this.minutes.toString().padStart(2, '0');
@@ -21,59 +24,72 @@ export class MainDial {
     return `${mm}:${ss}`;
   }
 
-  validateTime(){
-    if (this.minutes > 59){this.minutes = 59}
-    if (this.minutes < 0){this.minutes = 0}
-
-    if (this.seconds > 59){this.seconds = 59}
-    if (this.seconds < 0){this.seconds = 0}
+  validateTime() {
+    this.minutes = Math.min(59, Math.max(0, this.minutes));
+    this.seconds = Math.min(59, Math.max(0, this.seconds));
   }
 
-
-  pauseTimer(){
+  pauseTimer() {
     clearInterval(this.interval);
-    this.isRunning = false ;
+    this.isRunning = false;
   }
 
   playAlarm() {
-  const audio = new Audio('alarm.mp3');
-  audio.loop = true; 
+  this.alarmAudio.loop = true;
 
-  audio.play().then(() => {
-    alert('Time is Up!');
-    audio.pause();
-    audio.currentTime = 0;
+  this.alarmAudio.play().then(() => {
+    this.showAlarm = true; // show the modal after sound starts
   }).catch((err) => {
     console.error('Audio failed to play:', err);
   });
-  }
+}
 
-  startTimer(){
-    if(this.isRunning){return;} //this knows if the timer is already running
+dismissAlarm() {
+  this.alarmAudio.pause();
+  this.alarmAudio.currentTime = 0;
+  this.showAlarm = false;
+}
 
-    this.totalSeconds = (this.minutes * 60) + this.seconds ; //conversion
+  startTimer() {
+    if (this.isRunning) return;
 
-    if(this.totalSeconds <= 0){return;} //if the timer is 0 at the time of the start function call
+    this.totalSeconds = this.minutes * 60 + this.seconds;
+    if (this.totalSeconds <= 0) return;
 
-    this.interval = setInterval(()=>{
-      if(this.totalSeconds > 0){
-        this.totalSeconds-- ;
+    // FIX: Preload the audio during user interaction
+    this.alarmAudio.load();
+
+    this.isRunning = true;
+
+    this.interval = setInterval(() => {
+      if (this.totalSeconds > 0) {
+        this.totalSeconds--;
 
         this.minutes = Math.floor(this.totalSeconds / 60);
-        this.seconds = this.totalSeconds % 60 ;
+        this.seconds = this.totalSeconds % 60;
+
+        this.updateDocumentTitle();
 
         if (this.totalSeconds === 0) {
-          this.playAlarm();  // 🧠 play sound only when it hits 0
+          this.playAlarm(); // Trigger alarm
         }
-      }else{
+      } else {
         this.pauseTimer();
       }
-    },1000);
+    }, 1000);
   }
 
-  resetTimer(){
+  resetTimer() {
     this.pauseTimer();
-    this.minutes = 0 ;
-    this.seconds = 0 ;
+    this.minutes = 0;
+    this.seconds = 0;
+    this.totalSeconds = 0;
+    this.updateDocumentTitle();
+  }
+
+  updateDocumentTitle() {
+    const min = this.minutes.toString().padStart(2, '0');
+    const sec = this.seconds.toString().padStart(2, '0');
+    document.title = `${min}:${sec} - GD Timer`;
   }
 }
