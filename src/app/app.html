@@ -5,10 +5,11 @@
   <button class="action-btn" (click)="generateExportText()">Export as text</button>
 </div>
 <div>
-    @for (card of cards; track $index) {
+    @for (id of cards; track id) {
         <app-stopwatch-card
+            [id]="id"
             (started)="onStartActive($event)"
-            (delete)="deleteCard(card)">
+            (delete)="deleteCard(id)">
         </app-stopwatch-card>
 
     }
@@ -19,5 +20,4 @@
         <textarea readonly rows="cards.length + 1">{{ exportText }}</textarea>
     </div>
 }
-
 <app-footer></app-footer>
