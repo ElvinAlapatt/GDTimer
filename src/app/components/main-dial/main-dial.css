@@ -8,9 +8,7 @@
   font-family: inter Tight;
   justify-content: center;
   color: var(--text-color);
-  
 }
-
 
 .container {
     display: flex;
@@ -75,10 +73,11 @@
 
 /* Button styling */
 .btncontainer .btn {
+  box-sizing: border-box;
   padding: 12px 24px;
   font-size: 18px;
   font-weight: bold;
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
   border-radius: 10px;
   background-color: var(--button-bg);
   color: var(--button-text);
@@ -90,7 +89,6 @@
 .btncontainer .btn:hover {
   background-color: var(--border-color);
   color: var(--button-bg);
-  border: 2px solid var(--border-color);
 }
 
 .btncontainer .btn:active {

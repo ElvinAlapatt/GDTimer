@@ -31,7 +31,7 @@
 }
 
 .export-box textarea {
-  width: 90%;
+  width: 100%;
   padding: 10px;
   font-size: 22px;
   font-family: 'Courier New', monospace;
@@ -42,6 +42,32 @@
   overflow-y: auto;  
   background-color: var(--button-bg);
   color: var(--text-color);
+}
+
+.clarity{
+  font-size: 24px;
+  font-family: inter Tight;
+  justify-content: center;
+  color: var(--text-color);
+}
+
+.copy-btn{
+  box-sizing: border-box;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 30px;
+}
+
+.copy-btn:hover {
+  background-color: var(--border-color);
+  color: var(--button-bg);
 }
 
 /* Responsive styles (for mobile screens) */

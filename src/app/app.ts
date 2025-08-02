@@ -2,12 +2,11 @@ import { Component, ViewChildren, QueryList, AfterViewInit, OnInit } from '@angu
 import { StopwatchCardComponent } from './components/stopwatch-card/stopwatch-card';
 import { Header } from './components/header/header';
 import { MainDial } from './components/main-dial/main-dial';
-import { Footer } from './components/footer/footer';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
-  imports: [Header, MainDial, StopwatchCardComponent, Footer],
+  imports: [Header, MainDial, StopwatchCardComponent],
   styleUrls: ['./app.css'],
 })
 export class AppComponent implements AfterViewInit, OnInit {
@@ -89,5 +88,15 @@ export class AppComponent implements AfterViewInit, OnInit {
       seconds: card.seconds
     }));
     localStorage.setItem('stopwatchData', JSON.stringify(data));
+  }
+
+  copyToClipboard() {
+    if (!this.exportText) return;
+
+    navigator.clipboard.writeText(this.exportText).then(() => {
+    }).catch(err => {
+      console.error('Failed to copy text: ', err);
+      alert('Failed to copy text. Please try again.');
+    });
   }
 }

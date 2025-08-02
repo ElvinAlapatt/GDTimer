@@ -92,6 +92,21 @@ export class MainDial implements OnInit {
     this.updateDocumentTitle();
   }
 
+  addMinutes(){
+    const additionalSeconds = 60;
+    const currentTotal = this.minutes * 60 + this.seconds + additionalSeconds;
+
+    this.minutes = Math.floor(currentTotal / 60);
+    this.seconds = currentTotal % 60;
+
+    if(this.isRunning) {
+      this.endTimestamp += additionalSeconds * 1000;
+      localStorage.setItem('mainTimer', JSON.stringify({ endTimestamp: this.endTimestamp }));
+    }
+
+    this.updateDocumentTitle();
+  }
+
   playAlarm() {
     this.alarmAudio.loop = true;
     this.alarmAudio.play().then(() => {
