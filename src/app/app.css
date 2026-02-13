@@ -49,15 +49,16 @@
   font-family: inter Tight;
   justify-content: center;
   color: var(--text-color);
+  padding-bottom: 20px;
 }
 
 .copy-btn{
   box-sizing: border-box;
-  padding: 12px 24px;
+  padding: 12px;
   font-size: 18px;
   font-weight: bold;
   border: 2px solid var(--border-color);
-  border-radius: 10px;
+  border-radius: 50%;
   background-color: var(--button-bg);
   color: var(--button-text);
   cursor: pointer;

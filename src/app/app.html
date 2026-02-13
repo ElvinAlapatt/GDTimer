@@ -19,7 +19,7 @@
     <div class="export-box">
         <div class="export-header" style="display: flex; justify-content: space-between; align-items: center;">
             <span class="clarity">Exported Text</span>
-            <button class="copy-btn" (click)="copyToClipboard()">Copy</button>
+            <button class="copy-btn" (click)="copyToClipboard()"><i class="fa-solid fa-copy"></i></button>
         </div>
         <textarea readonly rows="cards.length + 1">{{ exportText }}</textarea>
     </div>
